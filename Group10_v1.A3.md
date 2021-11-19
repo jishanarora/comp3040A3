@@ -48,7 +48,7 @@ A simple API to provide some general information about the Manitoba Provincial P
 
 ### Sample Request and Response
 ```
-https://api.parkfinder.org/json?Birds-Hill
+https://api.parkfinder.org/json?name=Birds-Hill
  
 {
   "Name": "Birds Hill Provincial Park",
