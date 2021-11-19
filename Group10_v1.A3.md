@@ -46,4 +46,15 @@ The user can see what the closest provincial park to their location is. This req
 ```
 
 ### Sample Request and Response
-
+```
+https://api.parkfinder.org/json?Birds-Hill
+ 
+{
+  "Name": "Birds Hill Provincial Park",
+  "Entry Fee": 0.00,
+  "Hour Open": 7:00,
+  "Hour Closed": 23:00, 
+  "Longitude": 50.0276° N,
+  "Latitude": 96.8870° W
+  }
+```
