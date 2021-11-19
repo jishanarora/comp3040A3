@@ -5,7 +5,7 @@ A simple API to provide some general information about the Manitoba Provincial P
 
 ### Endpoints
 #### List All Parks
->The user can get a list of all the provincial parks in Manitoba, as well as the total number of provincial parks. There are no >parameters required when submitting this request.
+>The user can get a list of all the provincial parks in Manitoba, as well as the total number of provincial parks. The user can add parameters such as fee and hours to filter the list.
 
 #### Park Information
 >The user can get information about a specific provincial park using this request. Some of the information returned includes:
