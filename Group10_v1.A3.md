@@ -4,7 +4,7 @@
 A simple API to provide some general information about the Manitoba Provincial Parks. Users can get a list of all the provincial parks in Manitoba, or get information about a specific park they might want to visit.
 
 ### Endpoints
-There are only one endpoint (api.parkfinder.org/json).
+There is one endpoint at api.parkfinder.org/json. Using different parameters allows the user to either get a list of parks in Manitoba, or get information about a specific park by name or by location.
 
 ### Parameters
 There are three parameters.
@@ -12,8 +12,8 @@ There are three parameters.
 - The name of a specific park. 
 - If "0", other parameters will be parsed. 
 - If specified, other parameters will be ignored and information about this park will be returned.
-2. zipcode (string): Default is "0". Optional.
-- The zip code of a specific location. 
+2. postalcode(string): Default is "0". Optional.
+- The postal code of a specific location. 
 - If "0", other parameters will be parsed. 
 - If specified, other parameters will be ignored and information about the nearest park will be returned.
 3. list(integer): 0 or 1. Required.
