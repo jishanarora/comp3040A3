@@ -4,91 +4,66 @@
 A simple API to provide some general information about the Manitoba Provincial Parks. Users can get a list of all the provincial parks in Manitoba, or get information about a specific park they might want to visit.
 
 ### Endpoints
-#### List All Parks
->The user can get a list of all the provincial parks in Manitoba, as well as the total number of provincial parks. The user can filter the list using parameters such as name, location and fee.
+There are only one endpoint (api.parkfinder.org/json).
 
-#### Park Information
->The user can get information about a specific provincial park using this request. Some of the information returned includes:
->- Entry Fee
->- Park Hours
->- Location
-
->This request requires the user to enter the name of the park as a parameter.
-
-#### Nearest Park
->The user can see what the closest provincial park to their location is. This request will return the name of the nearest park as well as its location. This request requires the user to enter their current location in longitude and latitude as a parameter.
+### Parameters
+There are three parameters.
+1. name(string): Default is "0". Optional.
+- The name of a specific park. 
+- If "0", other parameters will be parsed. 
+- If specified, other parameters will be ignored and information about this park will be returned.
+2. zipcode (string): Default is "0". Optional.
+- The zip code of a specific location. 
+- If "0", other parameters will be parsed. 
+- If specified, other parameters will be ignored and information about the nearest park will be returned.
+3. list(integer): 0 or 1. Required.
+- If 1, all provincial parks names will be listed. 
+- If 0, at least one of the other parameters should have non defalt value to identify a specific park.
 
 ### Resources
-#### List All Parks Resources
+#### List parameter is 1, List all parks.
 ```
 {
   "Parks": ["park1", "park2", "park3", ...]
 }
 ```
 
-#### Park Information
+#### List parameter is 0, return information about a specific park.
 ```
 {
   "Name": "park name",
   "Entry Fee": 3.00,
   "Hour Open": 8:00,
-  "Hour Closed": 20:00,
-  "Longitude": -------,
-  "Latitude": -------
-}
-```
-#### Nearest Park
-```
-{
-  "Name": "park name",
-  "Longitude": -------,
-  "Latitude": -------
+  "Hour Closed": 20:00
 }
 ```
 
 ### Sample Request and Response
 ```
-https://api.parkfinder.org/json?name=Birds-Hill
+ https://api.parkfinder.org/json?name=Birds-Hill&list=0
  
-{
+ {
   "Name": "Birds Hill Provincial Park",
   "Entry Fee": 8.00,
   "Hour Open": 7:00,
   "Hour Closed": 23:00, 
-  "Longitude": 50.0276° N,
-  "Latitude": 96.8870° W
-  }
+ }
   
- https://api.parkfinder.org/json?location=winnipeg
+ https://api.parkfinder.org/json?zipcode=R0E0K0&list=0
  
-{
+ {
   "Name": "Birds Hill Provincial Park",
   "Entry Fee": 8.00,
   "Hour Open": 7:00,
   "Hour Closed": 23:00, 
-  "Longitude": 50.0276° N,
-  "Latitude": 96.8870° W
-  }
+ }
   
-   https://api.parkfinder.org/json?location=dauphin&location=winnipeg&fee=10
- 
-{ 
-{
-  "Name": "Rainbow Beach Provincial Park",
-  "Entry Fee": 5.00,
-  "Hour Open": 7:00,
-  "Hour Closed": 23:00, 
-  "Longitude": 50.0276° N,
-  "Latitude": 96.8870° W
-  },
-  {
+ https://api.parkfinder.org/json?list=1
+ {
   "Name": "Birds Hill Provincial Park",
-  "Entry Fee": 8.00,
-  "Hour Open": 7:00,
-  "Hour Closed": 23:00, 
-  "Longitude": 50.0276° N,
-  "Latitude": 96.8870° W
-  }
+  "Name": "Beaudry Provincial Park",
+  ......,
+  ......
  }
   
 ```
