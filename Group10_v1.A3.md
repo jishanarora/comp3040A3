@@ -8,14 +8,14 @@ There is one endpoint at _api.parkfinder.org/json_. Using different parameters a
 
 ### Parameters
 There are three parameters.
-1. name(string): Default is "0". Optional.
+1. name(string): Default is "". Optional.
 >- The name of a specific park. 
->- If "0", other parameters will be parsed. 
->- If specified, other parameters will be ignored and information about this park will be returned.
-2. postalcode(string): Default is "0". Optional.
+>- If "", other parameters will be parsed.
+>- If specified, parks with same information will be returned.
+2. postalcode(string): Default is "". Optional.
 >- The postal code of a specific location. 
->- If "0", other parameters will be parsed. 
->- If specified, other parameters will be ignored and information about the nearest park will be returned.
+>- If "", other parameters will be parsed. 
+>- If specified, information about the nearest parks will be returned.
 3. list(integer): 0 or 1. Required.
 >- If 1, all provincial parks names will be listed. 
 >- If 0, at least one of the other parameters should have non defalt value to identify a specific park.
