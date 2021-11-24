@@ -11,11 +11,11 @@ There are three parameters.
 1. name(string): Default is "". Optional.
 >- The name of a specific park. 
 >- If "", other parameters will be parsed.
->- If specified, parks with same information will be returned.
+>- If specified, parks with the same name will be returned.
 2. postalcode(string): Default is "". Optional.
 >- The postal code of a specific location. 
 >- If "", other parameters will be parsed. 
->- If specified, information about the nearest parks will be returned.
+>- If specified, information about the nearest park will be returned.
 3. list(integer): 0 or 1. Required.
 >- If 1, all provincial parks names will be listed. 
 >- If 0, at least one of the other parameters should have non defalt value to identify a specific park.
@@ -49,7 +49,7 @@ https://api.parkfinder.org/json?name=Birds-Hill&list=0
   "Closes At": 23:00, 
  }
  ```
- https://api.parkfinder.org/json?zipcode=R0E0K0&list=0
+ https://api.parkfinder.org/json?postalcode=R0E0K0&list=0
  ```
  {
   "Name": "Birds Hill Provincial Park",
