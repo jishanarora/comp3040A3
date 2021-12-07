@@ -8,27 +8,28 @@ There is one endpoint at _api.parkfinder.org/json_. Using different parameters a
 
 ### Parameters
 There are three parameters.
-1. name(string): Default is "". Optional.
+1. name(string): Default is "". Required.
 >- The name of a specific park. 
->- If "", other parameters will be parsed.
+>- If "", all provincial parks names will be returned.
 >- If specified, parks with the same name will be returned.
-2. postalcode(string): Default is "". Optional.
+2. postalcode: Default is "". Optional.
 >- The postal code of a specific location. 
 >- If "", other parameters will be parsed. 
->- If specified, information about the nearest park will be returned.
-3. list(integer): 0 or 1. Required.
->- If 1, all provincial parks names will be listed. 
->- If 0, at least one of the other parameters should have non defalt value to identify a specific park.
+>- If specified, a list of parks near the location wil be returned.
+3. Fee: Default is "". Optional.
+>- The fee of a specific location. 
+>- If "", other parameters will be parsed. 
+>- If specified, a list of parks whose fees is below or equal to the specified fees will be returned.
 
 ### Resources
-#### List parameter is 1, List all parks.
+#### Name parameter is "", List all parks.
 ```
 {
   "Parks": ["park1", "park2", "park3", ...]
 }
 ```
 
-#### List parameter is 0, return information about a specific park.
+#### Name parameter is "Park name", return information about a specific park.
 ```
 {
   "Name": "park name",
@@ -39,7 +40,7 @@ There are three parameters.
 ```
 
 ### Sample Requests and Responses
-https://api.parkfinder.org/json?name=Birds-Hill&list=0
+https://api.parkfinder.org/json?name=Birds-Hill
 ```
  
  {
@@ -49,7 +50,7 @@ https://api.parkfinder.org/json?name=Birds-Hill&list=0
   "Closes At": 23:00, 
  }
  ```
- https://api.parkfinder.org/json?postalcode=R0E0K0&list=0
+ https://api.parkfinder.org/json?postalcode=R0E0K0
  ```
  {
   "Name": "Birds Hill Provincial Park",
@@ -58,13 +59,19 @@ https://api.parkfinder.org/json?name=Birds-Hill&list=0
   "Closes At": 23:00, 
  }
  ```
- https://api.parkfinder.org/json?list=1
+ https://api.parkfinder.org/json?name
  ```
  {
-  "Name": "Birds Hill Provincial Park",
+  ["Name": "Birds Hill Provincial Park",
   "Name": "Beaudry Provincial Park",
   ......,
-  ......
+  ......]
+ }
+ ```
+ https://api.parkfinder.org/json?name=Birds-Hill&postalcode=R0E0K0&
+ ```
+ {
+ []
  }
   
 ```
